@@ -25,3 +25,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.messages-section').classList.remove('show');
     });
     });
+
+    // Sign & Sign Up.
+    const forms = document.querySelector(".forms"),
+    links = document.querySelectorAll(".link");  
+
+links.forEach(link => {
+  link.addEventListener("click", e => {
+     e.preventDefault(); 
+     forms.classList.toggle("show-signup");
+  })
+})
