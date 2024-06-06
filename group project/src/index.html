@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Software Management Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assests/css/index.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Nunito&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,700&family=Varela&family=Varela+Round&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div class="main-app">
@@ -33,6 +32,7 @@
                   <circle cx="11" cy="11" r="8"></circle>
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
+             
                 <button
                   class="icon-name"
                   style="cursor: pointer; font-size: 16px"
@@ -66,18 +66,11 @@
       </div>
       <!--  -->
 
-      <!-- Main Coontaint -->
+      <!-- Main Container -->
       <div class="main">
         <div class="navbar">
-          <div class="nav-content">
-            <div class="nav-logo">
-              <img class="main-logo" src="Logo.png" alt="logo" width="80" height="auto">
-            <span class="logo-txt">Software Management Board</span>
-            </div>
-            <h2>By Faizan & Ajit</h2>
-          </div>
           <div class="title">
-            <h2>Management Board</h2>
+            <h2>Software Management Board</h2>
             <button class="git-btn" fdprocessedid="unewh">
               <a href="https://github.com/SimplifiedWeb">GitHub Repo</a>
             </button>
@@ -85,15 +78,17 @@
           <div class="search-container">
             <div class="search">
               <img class="img-icon-search" src="../assests/img/search.png" alt="search" />
-              <span
-                ><input type="text" id="search" fdprocessedid="etetr4"
-              /></span>
+              <span>
+                <input type="text" id="search" fdprocessedid="etetr4"/>
+              </span>
             </div>
             <div class="icons">
-              <img src="assets/Buu.jpg" alt="img" /><img
+              <img src="assets/Buu.jpg" alt="img" />
+              <img
                 src="assets/Goku-Intro.png"
                 alt="img"
-              /><img src="assets/Jiren.jpg" alt="img" />
+              />
+              <img src="assets/Jiren.jpg" alt="img" />
             </div>
             <div class="small-titles">
               <button class="btn f-btn" fdprocessedid="yv0ad1">
@@ -104,40 +99,91 @@
             </div>
           </div>
         </div>
-       <!--  -->
-        <!--  -->
+       
         <!-- Main Container -->
-      <div class="board-container">
-        <div class="board-banners">
-          <h3>backlog</h3>
-          <div class="createdCard">
-            <div class="chips">
-              <div class="top-bar">
-                <span></span>
-                <span></span>
-              </div>
-              <div class="middle-bar">
-                <h3></h3>
+        <div class="board-container">
+          <div class="board-banners">
+           <div class="board-banners-heading" >
+            <h3>Backlog</h3>
+            <img src="../assests/icons/backlog.png" alt="backlog"  />
+           </div>
+            <div class="createdCard">
+              <div class="chips">
+                <div class="top-bar">
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="middle-bar">
+                  <h3></h3>
+                </div>
               </div>
             </div>
           </div>
+          <div class="board-banners">
+            <div class="board-banners-heading" >
+              <h3>Development</h3>
+            <img src="../assests/icons/app-development.png" alt="development"  />
+           </div>
+            <div class="createdCard"></div>
+          </div>
+          <div class="board-banners">
+            <div class="board-banners-heading" >
+              <h3>Progress</h3>
+              <img src="../assests/icons/work-in-progress.png" alt="progress"  />
+             </div>
+            <div class="createdCard"></div>
+          </div>
+          <div class="board-banners">
+            <div class="board-banners-heading" >
+              <h3>Done</h3>
+              <img src="../assests/icons/check.png" alt="done"  width="18px" height="18px" />
+             </div>
+            <div class="createdCard"></div>
+            <div class="box" style="display:none">
+              <button class="close-btn" fdprocessedid="ubik3c">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              <div class="creating-user-inputs">
+                <form>
+                  <div class="groups-of-inputs">
+                    <label class="category-label" for="category">Category</label>
+                    <select class="category-top" id="category" fdprocessedid="41e7ob">
+                      <option value="backlog">BackLog</option>
+                      <option value="development">Selected For Development</option>
+                      <option value="progress">InProgress</option>
+                      <option value="done">Done</option>
+                    </select>
+                    <p>Select the Category which is We Proceed.</p>
+                  </div>
+                  <div class="groups-of-inputs">
+                    <label for="title">Title</label>
+                    <input required="" type="text" id="title" name="title" fdprocessedid="p088e4">
+                    <p>Give The Title To Your Task.</p>
+                  </div>
+                  <div class="groups-of-inputs">
+                    <label for="summary">Short Summary</label>
+                    <input required="" type="text" id="summary" name="summary" fdprocessedid="wenwnh">
+                    <p>Write the Short Summary To Remember.</p>
+                  </div>
+                  <div class="groups-of-inputs">
+                    <label for="description">Description</label>
+                    <textarea id="title" name="title"></textarea>
+                    <p>Detailed The Issue.</p>
+                  </div>
+                  <div class="groups-of-inputs">
+                    <label for="tags">Tags</label>
+                    <input required="" type="text" id="tags" name="tags" fdprocessedid="l5fp03">
+                    <p>Which Language.</p>
+                  </div>
+                  <button class="submit-btn" type="submit" fdprocessedid="ybzcj">Add</button>
+                </form>
+              </div>
+             </div>     
+          </div>
         </div>
-        <div class="board-banners">
-          <h3>Develpment</h3>
-          <div class="createdCard"></div>
-        </div>
-        <div class="board-banners">
-          <h3>Progress</h3>
-          <div class="createdCard"></div>
-        </div>
-        <div class="board-banners">
-          <h3>Done
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-          </h3>
-          <div class="createdCard"></div>
-          <div class="box"><button class="close-btn" fdprocessedid="ubik3c"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button><div class="creating-user-inputs"><form><div class="groups-of-inputs"><label class="category-label" for="category">Category</label><select class="category-top" id="category" fdprocessedid="41e7ob"><option value="backlog">BackLog</option><option value="development">Selected For Development</option><option value="progress">InProgress</option><option value="done">Done</option></select><p>Select the Category which is We Proceed.</p></div><div class="groups-of-inputs"><label for="title">Title</label><input required="" type="text" id="title" name="title" fdprocessedid="p088e4"><p>Give The Title To Your Task.</p></div><div class="groups-of-inputs"><label for="summary">Short Summary</label><input required="" type="text" id="summary" name="summary" fdprocessedid="wenwnh"><p>Write the Short Summary To Remember.</p></div><div class="groups-of-inputs"><label for="description">Description</label><textarea id="title" name="title"></textarea><p>Detailed The Issue.</p></div><div class="groups-of-inputs"><label for="tags">Tags</label><input required="" type="text" id="tags" name="tags" fdprocessedid="l5fp03"><p>Which Language.</p></div><button class="submit-btn" type="submit" fdprocessedid="ybzcj">Add</button></form></div></div>
-        </div>
-      </div>
       </div>
 
       </div>
@@ -146,7 +192,7 @@
     <!--  -->
     <!-- Main-Bottom -->
     <div class="detailContainer" id="detailTaskSection">
-      <div class="left">
+      <div  iv class="left">
         <div class="topBar">
           <h1>Detail Task</h1>
           <button fdprocessedid="sbz3rb">Delete</button>
