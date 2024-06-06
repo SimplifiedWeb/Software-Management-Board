@@ -1,41 +1,11 @@
-<<<<<<< HEAD
-=======
-document.addEventListener('DOMContentLoaded', function () {
-    var modeSwitch = document.querySelector('.mode-switch');
-    modeSwitch.addEventListener('click', function () { document.documentElement.classList.toggle('dark');
-    modeSwitch.classList.toggle('active');
-    });
-    var listView = document.querySelector('.list-view');
-    var gridView = document.querySelector('.grid-view');
-    var projectsList = document.querySelector('.project-boxes');
-    listView.addEventListener('click', function () {
-    gridView.classList.remove('active');
-    listView.classList.add('active');
-    projectsList.classList.remove('jsGridView');
-    projectsList.classList.add('jsListView');
-    });
-    gridView.addEventListener('click', function () {
-    gridView.classList.add('active');
-    listView.classList.remove('active');
-    projectsList.classList.remove('jsListView');
-    projectsList.classList.add('jsGridView');
-    });
-    document.querySelector('.messages-btn').addEventListener('click', function () {
-    document.querySelector('.messages-section').classList.add('show');
-    });
-    document.querySelector('.messages-close').addEventListener('click', function() {
-    document.querySelector('.messages-section').classList.remove('show');
-    });
-    });
+document.addEventListener("DOMContentLoaded", function () {
+	const forms = document.querySelector(".forms");
+	const links = document.querySelectorAll(".link");
 
-    // Sign & Sign Up.
-    const forms = document.querySelector(".forms"),
-    links = document.querySelectorAll(".link");  
-
-links.forEach(link => {
-  link.addEventListener("click", e => {
-     e.preventDefault(); 
-     forms.classList.toggle("show-signup");
-  })
-})
->>>>>>> c5a04e3cea155d8e7d3206dcf5b2c36318a67fe1
+	links.forEach((link) => {
+		link.addEventListener("click", (e) => {
+			e.preventDefault();
+			forms.classList.toggle("show-signup");
+		});
+	});
+});

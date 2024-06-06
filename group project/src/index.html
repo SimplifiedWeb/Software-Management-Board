@@ -1,155 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Software Management Board</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assests/css/index.css" />
-  </head>
-  <body>
-    <div class="main-app">
-      <!-- Header -->
-      <div class="sidebar expanded">
-    
-          <div class="sidebar-icons">
-            <!-- 	https://i.postimg.cc/hGZKzdkS/logo.png -->
-            <div class="icon">
-              <div class="logo-icon-container">
-                <img src="https://i.postimg.cc/hGZKzdkS/logo.png" id="slider-logo" alt="logo" />
-                <img src="../assests/svg/left-arrow.svg" id="left-arrow" alt="left-arrow-logo">
-              </div>
-            </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Software Management Board</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../assests/css/index.css" />
+	</head>
+	<body>
+		<div class="main-app">
+			<!-- Sidebar -->
+			<div class="sidebar expanded">
+				<div class="sidebar-icons">
+					<div class="icon">
+						<div class="logo-icon-container">
+							<img
+								src="https://i.postimg.cc/hGZKzdkS/logo.png"
+								id="slider-logo"
+								alt="logo"
+							/>
+							<img
+								src="../assests/svg/left-arrow.svg"
+								id="left-arrow"
+								alt="left-arrow-logo"
+							/>
+						</div>
+					</div>
+					<div class="icon">
+						<div class="icon-container">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="icon-img"
+							>
+								<circle cx="11" cy="11" r="8"></circle>
+								<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+							</svg>
+							<button class="icon-name">Search Issue</button>
+						</div>
+					</div>
+					<div class="icon">
+						<div class="icon-container">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="icon-img"
+							>
+								<line x1="12" y1="5" x2="12" y2="19"></line>
+								<line x1="5" y1="12" x2="19" y2="12"></line>
+							</svg>
+							<span class="icon-name">Create Task</span>
+						</div>
+					</div>
+					<div class="icon">
+						<div class="icon-container">
+							<img
+								src="../assests/svg/user.svg"
+								alt="profile"
+								width="24px"
+								height="24px"
+							/>
+							<span class="icon-name">Profile</span>
+						</div>
+					</div>
+					<div class="icon">
+						<div class="icon-container">
+							<img
+								src="../assests/svg/logout.svg"
+								alt="logout"
+								width="24px"
+								height="24px"
+							/>
+							<span class="icon-name">Logout</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Sidebar -->
 
-            <div class="icon">
-              <div class="icon-container">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="icon-img"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-             
-                <button
-                  class="icon-name"
-                  style="cursor: pointer; font-size: 16px; color : white"
-                >
-                  Search Issue
-                </button>
-              </div>
-            </div>
-            <div class="icon">
-              <div class="icon-container">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="icon-img"
-                >
-                  <line x1="12" y1="5" x2="12" y2="19"></line>
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-                <span class="icon-name">Create Task</span>
-              </div>
-            </div>
+			<!-- Main Container -->
+			<div class="main">
+				<div class="navbar">
+					<div class="nav-content">
+						<div class="nav-logo">
+							<span class="logo-txt">Software Management Board</span>
+						</div>
+						<!-- <a href="Sign.html" target="_blank">
+							<button class="Sign-in">Sign In</button>
+						</a> -->
+            <button class="git-btn">Git-Hub</button>
+					</div>
+					<div class="search-container">
+						<div class="search">
+							<img
+								class="img-icon-search"
+								src="../assests/img/search.png"
+								alt="search"
+							/>
+							<span>
+								<input type="text" id="search" />
+							</span>
+						</div>
+						<div class="icons">
+							<img src="assets/Buu.jpg" alt="img" />
+							<img src="assets/Goku-Intro.png" alt="img" />
+							<img src="assets/Jiren.jpg" alt="img" />
+						</div>
+						<div class="small-titles">
+							<button class="btn f-btn">Only My Issues</button>
+							<button class="btn s-btn">Recently Updated</button>
+						</div>
+					</div>
+				</div>
 
-            <div class="icon">
-              <div class="icon-container">
-               <img src="../assests/svg/user.svg" alt="logout" width="24px" height="24px"/>
-                <span class="icon-name">Profile</span>
-              </div>
-            </div>
-
-            <div class="icon">
-              <div class="icon-container">
-               <img src="../assests/svg/logout.svg" alt="logout" width="24px" height="24px"/>
-                <span class="icon-name">Logout</span>
-              </div>
-            </div>
-          </div>
-     
-      </div>
-      <!--  -->
-
-
-      <!-- Main Container -->
-      <div class="main">
-        <div class="navbar">
-          <div class="title">
-            <h2>Software Management Board</h2>
-            <button class="git-btn" fdprocessedid="unewh">
-      <!-- Navabr Coontaint -->
-      <div class="main">
-        <div class="navbar">
-          <div class="nav-content">
-            <div class="nav-logo">
-              <!-- <img class="main-logo" src="Logo.png" alt="logo" width="80" height="auto"> -->
-            <span class="logo-txt">Software Management Board</span>
-            <!-- <img class="logo-SMB" src="../assests/img/pngegg.png" alt="Software Management Board Logo"> -->
-            </div>
-            <a href="Sign.html" target="_blank">
-            <button class="Sign-in">Sign In</button>
-
-            </a>
-          </div>
-          <div class="title">
-            <h2>Management Board</h2>
-            <!-- <button class="git-btn" fdprocessedid="unewh">
->>>>>>> c5a04e3cea155d8e7d3206dcf5b2c36318a67fe1
-              <a href="https://github.com/SimplifiedWeb">GitHub Repo</a>
-            </button> -->
-          </div>
-          <div class="search-container">
-            <div class="search">
-              <img class="img-icon-search" src="../assests/img/search.png" alt="search" />
-              <span>
-                <input type="text" id="search" fdprocessedid="etetr4"/>
-              </span>
-            </div>
-            <div class="icons">
-              <img src="assets/Buu.jpg" alt="img" />
-              <img
-                src="assets/Goku-Intro.png"
-                alt="img"
-              />
-              <img src="assets/Jiren.jpg" alt="img" />
-            </div>
-            <div class="small-titles">
-              <button class="btn f-btn" fdprocessedid="yv0ad1">
-                Only My Issues</button
-              ><button class="btn s-btn" fdprocessedid="ecp5o">
-                Recently Updated
-              </button>
-            </div>
-          </div>
-        </div>
-       
-        <!-- Main Container -->
+				<!-- Board Container -->
         <div class="board-container">
           <div class="board-banners">
-           <div class="board-banners-heading" >
-            <h3>Backlog</h3>
-            <img src="../assests/icons/backlog.png" alt="backlog"  />
-           </div>
+            <div class="board-banners-heading">
+              <img src="../assests/icons/backlog.png" alt="backlog" />
+              <h3>Backlog</h3>
+            </div>
             <div class="createdCard">
-            
               <div class="chips">
                 <div class="top-bar">
                   <span></span>
@@ -158,237 +146,117 @@
                 <div class="middle-bar">
                   <h3></h3>
                 </div>
-      <div class="board-container">
-        <div class="board-banners">
-          <h3>backlog
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          </h3>
-          <div class="createdCard">
-            <!-- <div class="chips">
-              <div class="top-bar">
-                <span></span>
-                <span></span>
               </div>
-              <div class="middle-bar">
-                <h3></h3>
-              </div>
-            </div> -->
-          </div>
-          <div class="board-banners">
-            <div class="board-banners-heading" >
-              <h3>Development</h3>
-            <img src="../assests/icons/app-development.png" alt="development"  />
-           </div>
-            <div class="createdCard"></div>
-          </div>
-          <div class="board-banners">
-            <div class="board-banners-heading" >
-              <h3>Progress</h3>
-              <img src="../assests/icons/work-in-progress.png" alt="progress"  />
-             </div>
-            <div class="createdCard"></div>
-          </div>
-          <div class="board-banners">
-            <div class="board-banners-heading" >
-              <h3>Done</h3>
-              <img src="../assests/icons/check.png" alt="done"  width="18px" height="18px" />
-             </div>
-            <div class="createdCard"></div>
-            <div class="box" style="display:none">
-              <button class="close-btn" fdprocessedid="ubik3c">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-              <div class="creating-user-inputs">
-                <form>
-                  <div class="groups-of-inputs">
-                    <label class="category-label" for="category">Category</label>
-                    <select class="category-top" id="category" fdprocessedid="41e7ob">
-                      <option value="backlog">BackLog</option>
-                      <option value="development">Selected For Development</option>
-                      <option value="progress">InProgress</option>
-                      <option value="done">Done</option>
-                    </select>
-                    <p>Select the Category which is We Proceed.</p>
-                  </div>
-                  <div class="groups-of-inputs">
-                    <label for="title">Title</label>
-                    <input required="" type="text" id="title" name="title" fdprocessedid="p088e4">
-                    <p>Give The Title To Your Task.</p>
-                  </div>
-                  <div class="groups-of-inputs">
-                    <label for="summary">Short Summary</label>
-                    <input required="" type="text" id="summary" name="summary" fdprocessedid="wenwnh">
-                    <p>Write the Short Summary To Remember.</p>
-                  </div>
-                  <div class="groups-of-inputs">
-                    <label for="description">Description</label>
-                    <textarea id="title" name="title"></textarea>
-                    <p>Detailed The Issue.</p>
-                  </div>
-                  <div class="groups-of-inputs">
-                    <label for="tags">Tags</label>
-                    <input required="" type="text" id="tags" name="tags" fdprocessedid="l5fp03">
-                    <p>Which Language.</p>
-                  </div>
-                  <button class="submit-btn" type="submit" fdprocessedid="ybzcj">Add</button>
-                </form>
-              </div>
-             </div>     
-          </div>
-        </div>
-        <div class="board-banners">
-          <h3>Development
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
-          </h3>
-          <div class="createdCard"></div>
-        </div>
-        <div class="board-banners">
-          <h3>Progress
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-          </h3>
-          <div class="createdCard"></div>
-        </div>
-        <div class="board-banners">
-          <h3>Done
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-          </h3>
-          <div class="createdCard"></div>
-          <!--  -->
-
-          <!--Form Conatiner  -->
-          <!-- <div class="box">
-            <button class="close-btn" fdprocessedid="ubik3c">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-            <div class="creating-user-inputs">
-                <form>
-                    <div class="groups-of-inputs">
-                        <label class="category-label" for="category">Category</label>
-                        <select class="category-top" id="category" fdprocessedid="41e7ob">
-                            <option value="backlog">BackLog</option>
-                            <option value="development">Selected For Development</option>
-                            <option value="progress">InProgress</option>
-                            <option value="done">Done</option>
-                        </select>
-                        <p>Select the Category which is We Proceed.</p>
-                    </div>
-                    <div class="groups-of-inputs">
-                        <label for="title">Title</label>
-                        <input required="" type="text" id="title" name="title" fdprocessedid="p088e4">
-                        <p>Give The Title To Your Task.</p>
-                    </div>
-                    <div class="groups-of-inputs">
-                        <label for="summary">Short Summary</label>
-                        <input required="" type="text" id="summary" name="summary" fdprocessedid="wenwnh">
-                        <p>Write the Short Summary To Remember.</p>
-                    </div>
-                    <div class="groups-of-inputs">
-                        <label for="description">Description</label>
-                        <textarea id="title" name="title"></textarea>
-                        <p>Detailed The Issue.</p>
-                    </div>
-                    <div class="groups-of-inputs">
-                        <label for="tags">Tags</label>
-                        <input required="" type="text" id="tags" name="tags" fdprocessedid="l5fp03">
-                        <p>Which Language.</p>
-                    </div>
-                    <button class="submit-btn" type="submit" fdprocessedid="ybzcj">Add</button>
-                </form>
             </div>
-        </div> -->
-        <!-- Form Conatiner End -->
+            
+          </div>
         
+          <div class="board-banners">
+            <div class="board-banners-heading">
+              <img src="../assests/icons/app-development.png" alt="development" />
+              <h3>Development</h3>
+            </div>
+            <div class="createdCard"></div>
+          </div>
+        
+          <div class="board-banners">
+            <div class="board-banners-heading">
+              <img src="../assests/icons/work-in-progress.png" alt="progress" />
+              <h3>Progress</h3>
+            </div>
+            <div class="createdCard"></div>
+          </div>
+        
+          <div class="board-banners">
+            <div class="board-banners-heading">
+              <img src="../assests/icons/check.png" alt="done" width="18px" height="18px" />
+              <h3>Done</h3>
+            </div>
+            <div class="createdCard"></div>
+            <div class="box" style="display: none">
+              <!-- Form for adding tasks -->
+            </div>
+          </div>
         </div>
       </div>
->>>>>>> c5a04e3cea155d8e7d3206dcf5b2c36318a67fe1
-      </div>
+        
+			<!-- End Main Container -->
 
-      </div>
-      </div>
-      </div>
-    <!--  -->
-    <!-- detailContainer Start -->
-    <div class="detailContainer" id="detailTaskSection">
-      <div  iv class="left">
-        <div class="topBar">
-          <h1>Detail Task</h1>
-          <button fdprocessedid="sbz3rb">Delete</button>
-        </div>
-        <div class="category">
-          <span>Category:</span>
-          <span class="category-title"></span>
-        </div>
-        <div class="DetailShow">
-          <div class="main-heading"><h1>Detail information</h1>
-          </div>
-          <div class="items">
-            <div class="row">
-              <div class="label">Title:</div>
-              <div class="value"></div>
-            </div>
-            <div class="row">
-              <div class="label">Summary:</div>
-              <div class="value"></div>
-            </div>
-            <div class="row">
-              <div class="label">Description:</div>
-              <div class="value"></div>
-            </div>
-            <div class="row">
-              <div class="label">Tag:</div>
-              <div class="value"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="right">
-        <h2>Editing the Stuffs</h2>
-        <form>
-          <div class="form-group">
-            <label class="category-label" for="category">Category</label>
-            <select class="category-top" name="category" id="category" fdprocessedid="fp5dd">
-              <option value="backlog">BackLog</option>
-              <option value="development">Selected For Development</option>
-              <option value="progress">InProgress</option>
-              <option value="done">Done</option>
-            </select>
-            <p>Select the category for your task.</p>
-          </div>
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" value="" fdprocessedid="axyd4n">
-            <p>Provide a title for your task.</p>
-          </div>
-          <div class="form-group">
-            <label for="summary">Short Summary</label>
-            <input type="text" id="summary" name="summary" value="" fdprocessedid="w41wvf">
-            <p>Write a short summary to remember the task.</p>
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description"></textarea>
-            <p>Provide a detailed description of the issue.</p>
-          </div>
-          <div class="form-group">
-            <label for="tag">Tags</label>
-            <input type="text" id="tag" name="tag" value="" fdprocessedid="bv70wr">
-            <p>Specify the relevant tags or language.</p>
-          </div>
-          <div class="submit-bt">
-          <button class="submit-btn" type="submit" fdprocessedid="xiwvb">Add</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- detailContainer End -->
-    </div>
+			<!-- Detail Container -->
+			<div class="detailContainer" id="detailTaskSection">
+				<div class="left">
+					<div class="topBar">
+						<h1>Detail Task</h1>
+						<button>Delete</button>
+					</div>
+					<div class="category">
+						<span>Category:</span>
+						<span class="category-title"></span>
+					</div>
+					<div class="DetailShow">
+						<div class="main-heading"><h1>Detail information</h1></div>
+						<div class="items">
+							<div class="row">
+								<div class="label">Title:</div>
+								<div class="value"></div>
+							</div>
+							<div class="row">
+								<div class="label">Summary:</div>
+								<div class="value"></div>
+							</div>
+							<div class="row">
+								<div class="label">Description:</div>
+								<div class="value"></div>
+							</div>
+							<div class="row">
+								<div class="label">Tag:</div>
+								<div class="value"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<h2>Editing the Stuffs</h2>
+					<form>
+						<div class="form-group">
+							<label for="category">Category</label>
+							<select class="category-top" name="category" id="category">
+								<option value="backlog">BackLog</option>
+								<option value="development">Selected For Development</option>
+								<option value="progress">InProgress</option>
+								<option value="done">Done</option>
+							</select>
+							<p>Select the category for your task.</p>
+						</div>
+						<div class="form-group">
+							<label for="title">Title</label>
+							<input type="text" id="title" name="title" value="" />
+							<p>Provide a title for your task.</p>
+						</div>
+						<div class="form-group">
+							<label for="summary">Short Summary</label>
+							<input type="text" id="summary" name="summary" value="" />
+							<p>Write a short summary to remember the task.</p>
+						</div>
+						<div class="form-group">
+							<label for="description">Description</label>
+							<textarea id="description" name="description"></textarea>
+							<p>Provide a detailed description of the issue.</p>
+						</div>
+						<div class="form-group">
+							<label for="tag">Tags</label>
+							<input type="text" id="tag" name="tag" value="" />
+							<p>Specify the relevant tags or language.</p>
+						</div>
+						<div class="submit-bt">
+							<button class="submit-btn" type="submit">Add</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- End Detail Container -->
+		
 
-    <script src="index.js"></script>
-  </body>
+		<script src="index.js"></script>
+	</body>
 </html>
