@@ -11,31 +11,72 @@
 			<div class="form login">
 				<div class="form-content">
 					<h1>Login</h1>
-					<form action="#">
+					<form id="login-form">
 						<div class="field">
 							<input
 								type="text"
 								placeholder="User Name/Email"
 								class="input"
 								required
+								id="login-username"
 							/>
 						</div>
-						<!-- <div class="field">
-                        <input type="email" placeholder="Email" class="input" required>
-                    </div> -->
 						<div class="field">
 							<input
 								type="password"
 								placeholder="Password"
 								class="password"
 								required
+								id="login-password"
 							/>
 						</div>
+						<div id="forgotPasswordModal" class="modal">
+							<div class="modal-content">
+								<span
+									class="close"
+									onclick="document.getElementById('forgotPasswordModal').style.display = 'none'"
+									>&times;</span
+								>
+								<h2>Forgot Password</h2>
+								<div class="col">
+									<input
+										type="email"
+										id="forgotPasswordEmail"
+										placeholder="Enter your email"
+									/>
+									<button onclick="resetPassword()">Reset Password</button>
+								</div>
+							</div>
+						</div>
+						<div id="passwordResetSection" class="modal" style="display: none">
+							<div class="modal-content">
+								<span
+									class="close"
+									onclick="document.getElementById('passwordResetSection').style.display = 'none'"
+									>&times;</span
+								>
+
+								<h2>Reset Password</h2>
+								<input
+									type="password"
+									id="newPassword"
+									placeholder="Enter new password"
+								/>
+								<input
+									type="password"
+									id="confirmPassword"
+									placeholder="Confirm new password"
+								/>
+								<button onclick="updatePassword()">Update Password</button>
+							</div>
+						</div>
 						<div class="form-link">
-							<a href="#" class="forgot-pass">Forgot password?</a>
+							<div class="form-group" onclick="forgotPassword()">
+								<label for="password"> <a href="#">Forgot Password</a></label>
+							</div>
 						</div>
 						<div class="field">
-							<button>Login</button>
+							<button id="login-btn" type="submit">Login</button>
 						</div>
 					</form>
 					<div class="form-link">
@@ -50,32 +91,31 @@
 			<div class="form signup">
 				<div class="form-content">
 					<h1>Signup</h1>
-					<form action="#">
+					<form>
 						<div class="field">
 							<input
 								type="text"
-								placeholder="First Name"
+								placeholder="Username"
 								class="input"
+								id="signup-username"
 								required
 							/>
 						</div>
 						<div class="field">
 							<input
-								type="text"
-								placeholder="Last Name"
+								type="email"
+								placeholder="Email"
 								class="input"
+								id="signup-email"
 								required
 							/>
-						</div>
-
-						<div class="field">
-							<input type="email" placeholder="Email" class="input" required />
 						</div>
 						<div class="field">
 							<input
 								type="password"
 								placeholder="Create password"
 								class="password"
+								id="signup-password"
 								required
 							/>
 						</div>
@@ -84,11 +124,12 @@
 								type="password"
 								placeholder="Confirm password"
 								class="password"
+								id="signup-c-password"
 								required
 							/>
 						</div>
 						<div class="field">
-							<button>Signup</button>
+							<button id="register-btn" type="button">Signup</button>
 						</div>
 					</form>
 					<div class="form-link">
@@ -100,6 +141,8 @@
 				</div>
 			</div>
 		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 		<script src="index.js"></script>
+		<script src="auth.js"></script>
 	</body>
 </html>
