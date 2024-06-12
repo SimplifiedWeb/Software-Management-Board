@@ -399,9 +399,9 @@
 							</svg>
 						</button>
 						<div class="creating-user-inputs">
-							<form>
+							<form >
 								<div class="groups-of-inputs">
-									<label class="category-label" for="category">Category</label>
+									<label class="category-label" for="category" required>Category</label>
 									<select
 										class="category-top"
 										id="toggle-category"
@@ -418,8 +418,8 @@
 								</div>
 
 								<div class="groups-of-inputs">
-									<label for="title">Title</label>
-									<input required="" type="text" id="title" name="title" />
+									<label for="title" >Title</label>
+									<input  type="text" id="title" name="title" required />
 									<p>Give The Title To Your Task.</p>
 								</div>
 								<div
@@ -429,6 +429,7 @@
 								>
 									<label for="priority">Priority</label>
 									<select id="priority" name="priority">
+										<option value="" selected></option>
 										<option value="High">High</option>
 										<option value="Medium">Medium</option>
 										<option value="Low">Low</option>
@@ -438,17 +439,17 @@
 
 								<div class="groups-of-inputs">
 									<label for="summary">Short Summary</label>
-									<input required="" type="text" id="summary" name="summary" />
+									<input  type="text" id="summary" name="summary" required/>
 									<p>Write the Short Summary To Remember.</p>
 								</div>
 								<div class="groups-of-inputs">
 									<label for="description">Description</label>
-									<textarea id="description" name="description"></textarea>
+									<textarea id="description" name="description" required></textarea>
 									<p>Detailed The Issue.</p>
 								</div>
 								<div class="groups-of-inputs">
 									<label for="tags">Tags</label>
-									<input required="" type="text" id="tags" name="tags" />
+									<input required type="text" id="tags" name="tags" />
 									<p>Which Language.</p>
 								</div>
 								<button class="submit-btn" type="submit">Add</button>

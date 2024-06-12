@@ -108,6 +108,10 @@ function login(e) {
 	let username = document.getElementById("login-username").value;
 	let password = document.getElementById("login-password").value;
 
+    if(username.length === 0 || password.length === 0){
+		return alert("Fill the fields")
+	}
+
 	// CHECKING USERNAME LENGTH
 	if (!username.length > 3) {
 		return alert("Incorrect username!!");
@@ -151,6 +155,7 @@ function authenticateUsers(username, password) {
 			window.location.href = "/group%20project/src/index.html";
 		} else {
 			console.error("Invalid username or password");
+			alert("Password Incorrect")
 		}
 	};
 

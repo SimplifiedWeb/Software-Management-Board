@@ -142,9 +142,15 @@ function fetchTask() {
 
 	request.onsuccess = (e) => {
 		const tasks = e.target.result;
+		if (tasks.length === 0) {
+			const dummyData = [
+				{ category: "done", id: 1, title: "Dummy Task 1", summary: "Dummy summary 1", description: "Dummy description 1", tags: "Dummy tag 1", },
+			];
+			renderTasks(dummyData);
+		} else {
+			renderTasks(tasks);
+		}
 
-		// RENDER TASKS FUNCTION RENDER ALL THE DATA THAT IS PRESENT INSIDE OF OUR DB (TASKS).
-		renderTasks(tasks);
 	};
 
 	request.onerror = (e) => {
@@ -243,7 +249,7 @@ function deleteTask(id) {
 function renderTasks(tasks) {
 	// THIS ARE THE FOUR CATEGORIES WE HAVE IN OUR DASHBOARD.
 	const categories = ["backlog", "development", "progress", "done"];
-
+  console.log(tasks)
 	// LOOPING THROUGH EACH CATEGORY AND FINDING OUT WHICH TYPE OF CATEGORY DATA THE INCOMING DATA IS.
 	categories.forEach((category) => {
 		// DATA-CATEGORY IS AN ATTRIBUTE IT LOOK LIKE THIS IN HTML -> (data-category="backlog")
@@ -473,16 +479,20 @@ if (document.querySelector(".submit-btn")) {
 	document.querySelector(".submit-btn").addEventListener("click", function (e) {
 		e.preventDefault();
 
+		
 		let task = {
-			category: document.getElementById("category").value,
+			category: document.getElementById("toggle-category").value,
 			title: document.getElementById("title").value,
 			summary: document.getElementById("summary").value,
 			description: document.getElementById("description").value,
 			tags: document.getElementById("tags").value,
 			priority: document.getElementById("priority").value,
 		};
-
-		addTask(task);
+ if(task.category !== "" && task.title !== "" ){
+	addTask(task);
+ }else{
+	alert("Please Fill The Form ")
+ }
 
 		// ONCE WE ADD THE DATA HIDE THE CREATE TASK MODAL.
 		document.querySelector(".box").style.display = "none";
@@ -513,9 +523,9 @@ if (document.querySelector(".detailContainer .submit-btn")) {
 			// COLLECTING DATA FROM THE EDITING FORM.
 			let task = {
 				category: document.querySelector(".form-group #category").value,
-				title: document.querySelector(".form-group #title").value,
-				summary: document.querySelector(".form-group #summary").value,
-				description: document.querySelector(".form-group #description").value,
+				title: document.querySelector(".form-group #edit-title").value,
+				summary: document.querySelector(".form-group #edit-summary").value,
+				description: document.querySelector(".form-group #edit-description").value,
 				tags: document.querySelector(".form-group #tag").value,
 				priority: document.getElementById("edit-priority").value,
 				id: parseInt(document.querySelector("#taskId").value),
@@ -624,6 +634,9 @@ if (document.getElementById("create_task_icon")) {
 			let data = document.querySelector(".box");
 
 			let currentScrolled = window.scrollY;
+			if(currentScrolled <= 50){
+			currentScrolled = 100 
+			}
 
 			calculateMovingForm(data, currentScrolled);
 		});
@@ -640,7 +653,6 @@ function showProfile() {
 	document.getElementById("detailTaskSection").style.display = "none";
 
 	let img = document.getElementById("slider-logo");
-	console.log(img);
 	img.style.marginLeft = "26px";
 
 	// WE ADD A CHECK TO ENSURE WE RUN OUR PROFILE FUNCTIONALITY MULTIPLE TIMES.
