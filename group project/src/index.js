@@ -142,9 +142,21 @@ function fetchTask() {
 
 	request.onsuccess = (e) => {
 		const tasks = e.target.result;
-
-		// RENDER TASKS FUNCTION RENDER ALL THE DATA THAT IS PRESENT INSIDE OF OUR DB (TASKS).
-		renderTasks(tasks);
+		if (tasks.length === 0) {
+			const dummyData = [
+				{
+					category: "backlog",
+					id: 1,
+					title: "Dummy Task 1",
+					summary: "Dummy summary 1",
+					description: "Dummy description 1",
+					tags: "Dummy tag 1",
+				},
+			];
+			renderTasks(dummyData);
+		} else {
+			renderTasks(tasks);
+		}
 	};
 
 	request.onerror = (e) => {
@@ -242,37 +254,40 @@ function deleteTask(id) {
 
 function renderTasks(tasks) {
 	// THIS ARE THE FOUR CATEGORIES WE HAVE IN OUR DASHBOARD.
-	const categories = ["backlog", "development", "progress", "done"];
+	if (tasks === []) {
+		return;
+	} else {
+		const categories = ["backlog", "development", "progress", "done"];
 
-	// LOOPING THROUGH EACH CATEGORY AND FINDING OUT WHICH TYPE OF CATEGORY DATA THE INCOMING DATA IS.
-	categories.forEach((category) => {
-		// DATA-CATEGORY IS AN ATTRIBUTE IT LOOK LIKE THIS IN HTML -> (data-category="backlog")
-		// FOR EACH CATEGORY I USED THIS ATTRIBUTE TO DIFFERENTIATE WHERE TO PUT THIS INCOMING DATA IN ORGANIZED WAY, THROUGH THEIR RESPECTIVE CATEGORIES.
+		// LOOPING THROUGH EACH CATEGORY AND FINDING OUT WHICH TYPE OF CATEGORY DATA THE INCOMING DATA IS.
+		categories.forEach((category) => {
+			// DATA-CATEGORY IS AN ATTRIBUTE IT LOOK LIKE THIS IN HTML -> (data-category="backlog")
+			// FOR EACH CATEGORY I USED THIS ATTRIBUTE TO DIFFERENTIATE WHERE TO PUT THIS INCOMING DATA IN ORGANIZED WAY, THROUGH THEIR RESPECTIVE CATEGORIES.
 
-		const container = document.querySelector(
-			`.board-banners[data-category="${category}"] .createdCard`
-		);
+			const container = document.querySelector(
+				`.board-banners[data-category="${category}"] .createdCard`
+			);
 
-		// USED THIS CHECK TO INSURE THAT IF THE CONTAINER IS NOT AVAILABLE FOR SOME REASON WE CAN SHOW THE NULL.
-		container ? (container.innerHTML = "") : null;
+			// USED THIS CHECK TO INSURE THAT IF THE CONTAINER IS NOT AVAILABLE FOR SOME REASON WE CAN SHOW THE NULL.
+			container ? (container.innerHTML = "") : null;
 
-		// THIS TASKS IS INCOMING FROM FETCH TASK FUNCTIONS WHEN WE DO OPERATION AND CHANGE SOMETHING IT WILL CALL THIS RENDER TASK FUNCTION AND PASS THE UPDATED VALUES AS AN ARGUMENT TO THIS RENDER TASK FUNCTION.
+			// THIS TASKS IS INCOMING FROM FETCH TASK FUNCTIONS WHEN WE DO OPERATION AND CHANGE SOMETHING IT WILL CALL THIS RENDER TASK FUNCTION AND PASS THE UPDATED VALUES AS AN ARGUMENT TO THIS RENDER TASK FUNCTION.
 
-		// ADDING, UPDATING AND DELETING DATA WILL CALL THE FETCH TASK FUNCTION TO RE-GET ALL THE DATA FROM THE DB AND THEN FETCH TASK DATA PASS ALL THE DATA INSIDE THE RENDER TASK FUNCTION AS AN ARGUMENT.
+			// ADDING, UPDATING AND DELETING DATA WILL CALL THE FETCH TASK FUNCTION TO RE-GET ALL THE DATA FROM THE DB AND THEN FETCH TASK DATA PASS ALL THE DATA INSIDE THE RENDER TASK FUNCTION AS AN ARGUMENT.
 
-		// THIS "tasks" CONTAINS ALL THE TASK THAT WE CREATED. AND BASED ON THE CATEGORY WHERE TO PUT WE USE FILETER.
-		tasks
-			.filter((task) => task.category === category)
+			// THIS "tasks" CONTAINS ALL THE TASK THAT WE CREATED. AND BASED ON THE CATEGORY WHERE TO PUT WE USE FILTER.
+			tasks
+				.filter((task) => task.category === category)
 
-			.forEach((task) => {
-				let chips = document.createElement("div");
-				chips.className = "chips";
-				chips.dataset.id = task.id;
+				.forEach((task) => {
+					let chips = document.createElement("div");
+					chips.className = "chips";
+					chips.dataset.id = task.id;
 
-				// WHEN WE CLICK ANY ONE OF IT YOU WANT TO EDIT OR DELETE OPEN TASK DETAIL WILL SHOW US THE CLEAR DETAIL OF OUR TASKS WITH EDITING STUFFS.
-				chips.onclick = () => openTaskDetail(task);
+					// WHEN WE CLICK ANY ONE OF IT YOU WANT TO EDIT OR DELETE OPEN TASK DETAIL WILL SHOW US THE CLEAR DETAIL OF OUR TASKS WITH EDITING STUFFS.
+					chips.onclick = () => openTaskDetail(task);
 
-				chips.innerHTML = `
+					chips.innerHTML = `
 						<div class="top-bar">
 							<span class="dot red"></span>
 							<span class="dot yellow"></span>
@@ -289,9 +304,10 @@ function renderTasks(tasks) {
 						</div>
 					`;
 
-				container?.appendChild(chips);
-			});
-	});
+					container?.appendChild(chips);
+				});
+		});
+	}
 }
 // RENDER USERS ON ADMIN UI
 // function renderUsers(users) {
@@ -474,7 +490,7 @@ if (document.querySelector(".submit-btn")) {
 		e.preventDefault();
 
 		let task = {
-			category: document.getElementById("category").value,
+			category: document.getElementById("toggle-category").value,
 			title: document.getElementById("title").value,
 			summary: document.getElementById("summary").value,
 			description: document.getElementById("description").value,
@@ -513,9 +529,10 @@ if (document.querySelector(".detailContainer .submit-btn")) {
 			// COLLECTING DATA FROM THE EDITING FORM.
 			let task = {
 				category: document.querySelector(".form-group #category").value,
-				title: document.querySelector(".form-group #title").value,
-				summary: document.querySelector(".form-group #summary").value,
-				description: document.querySelector(".form-group #description").value,
+				title: document.querySelector(".form-group #edit-title").value,
+				summary: document.querySelector(".form-group #edit-summary").value,
+				description: document.querySelector(".form-group #edit-description")
+					.value,
 				tags: document.querySelector(".form-group #tag").value,
 				priority: document.getElementById("edit-priority").value,
 				id: parseInt(document.querySelector("#taskId").value),
@@ -585,6 +602,9 @@ if (document.getElementById("search")) {
 
 		request.onsuccess = (e) => {
 			let allTasks = e.target.result;
+
+			if (allTasks === []) return;
+
 			let filteredTasks = allTasks.filter((task) =>
 				task.title.toLowerCase().includes(search_query)
 			);
@@ -772,4 +792,3 @@ if (document.getElementById("imageURLInput")) {
 		.getElementById("imageURLInput")
 		.addEventListener("change", handleImageUpload);
 }
-

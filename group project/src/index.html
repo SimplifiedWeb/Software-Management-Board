@@ -419,7 +419,7 @@
 
 								<div class="groups-of-inputs">
 									<label for="title">Title</label>
-									<input required="" type="text" id="title" name="title" />
+									<input required type="text" id="title" name="title" />
 									<p>Give The Title To Your Task.</p>
 								</div>
 								<div
@@ -429,6 +429,7 @@
 								>
 									<label for="priority">Priority</label>
 									<select id="priority" name="priority">
+										<!-- <option value="" selected></option> -->
 										<option value="High">High</option>
 										<option value="Medium">Medium</option>
 										<option value="Low">Low</option>
@@ -438,17 +439,21 @@
 
 								<div class="groups-of-inputs">
 									<label for="summary">Short Summary</label>
-									<input required="" type="text" id="summary" name="summary" />
+									<input required type="text" id="summary" name="summary" />
 									<p>Write the Short Summary To Remember.</p>
 								</div>
 								<div class="groups-of-inputs">
 									<label for="description">Description</label>
-									<textarea id="description" name="description"></textarea>
+									<textarea
+										required
+										id="description"
+										name="description"
+									></textarea>
 									<p>Detailed The Issue.</p>
 								</div>
 								<div class="groups-of-inputs">
 									<label for="tags">Tags</label>
-									<input required="" type="text" id="tags" name="tags" />
+									<input required="true" type="text" id="tags" name="tags" />
 									<p>Which Language.</p>
 								</div>
 								<button class="submit-btn" type="submit">Add</button>
