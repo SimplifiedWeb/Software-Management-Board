@@ -10,8 +10,42 @@
 		/>
 		<link rel="stylesheet" href="../assests/css/index.css" />
 	</head>
+	<!-- background: rgba(254, 253, 253, 0.838); -->
+	<!-- background-color: #ddeeffae; -->
+
 	<body>
-		<div id="root">
+		<div id="root" style="margin-bottom: 30px">
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<div
+						style="
+							display: flex;
+							flex-direction: column;
+							gap: 20px;
+							padding: 10px;
+						"
+					>
+						<h3>Welcome, TO OUR SOFTWARE MANAGEMENT BOARD</h3>
+						<ul
+							style="
+								display: flex;
+								flex-direction: column;
+								gap: 20px;
+								padding: 10px;
+							"
+						>
+							<li><b>Search Issues</b>: Prioritizes "Progress" tasks.</li>
+							<li>
+								<b>Create Task</b>: Adds a new task and removes dummy data.
+							</li>
+							<li><b>Profile</b>: View and edit your profile.</li>
+							<li><b>Logout</b>: Log out of the board.</li>
+						</ul>
+						<h4><b>Check out the Guide Section!</b></h4>
+					</div>
+				</div>
+			</div>
 			<!-- Sidebar -->
 			<div class="sidebar expanded">
 				<div class="sidebar-icons">
@@ -93,6 +127,17 @@
 								height="24px"
 							/>
 							<span class="icon-name">Profile</span>
+						</div>
+					</div>
+					<div class="icon" onclick="openGuidePage()">
+						<div class="icon-container">
+							<img
+								src="../assests/svg/guide.svg"
+								alt="guide"
+								width="24px"
+								height="24px"
+							/>
+							<span class="icon-name">Guide</span>
 						</div>
 					</div>
 					<div class="icon" onclick="logout();">
@@ -717,6 +762,18 @@
 							<button class="submit-btn" type="button">Update</button>
 						</div>
 					</form>
+				</div>
+			</div>
+			<div class="footer" id="footer">
+				<div class="names">
+					<!-- <p>Developed with dedication and expertise by Ajit and Faizan</p> -->
+					<p class="credit">Crafted with ❤️ by Faizan and Ajit</p>
+					<a
+						href="https://github.com/SimplifiedWeb/Software-Management-Board"
+						class="github-link"
+						target="_blank"
+						><b>( GitHub )</b></a
+					>
 				</div>
 			</div>
 			<!-- End Detail Container -->

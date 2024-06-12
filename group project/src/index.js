@@ -1,4 +1,4 @@
-let openConnections = indexedDB.open("storage", 4);
+let openConnections = indexedDB.open("storage", 5);
 let db;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -133,7 +133,7 @@ database_config();
 
 // TASKS FETCHING
 function fetchTask() {
-	let transaction = db.transaction(["tasks"], "readonly");
+	let transaction = db.transaction(["tasks"], "readwrite");
 
 	let store = transaction.objectStore("tasks");
 
@@ -143,17 +143,128 @@ function fetchTask() {
 	request.onsuccess = (e) => {
 		const tasks = e.target.result;
 		if (tasks.length === 0) {
-			const dummyData = [
-				{
-					category: "done",
-					id: 1,
-					title: "Dummy Task 1",
-					summary: "Dummy summary 1",
-					description: "Dummy description 1",
-					tags: "Dummy tag 1",
-				},
-			];
-			renderTasks(dummyData);
+			const dummyDataAdded = localStorage.getItem("dummyDataAdded");
+
+			if (!dummyDataAdded) {
+				const dummyData = [
+					// Backlog (4 items)
+					{
+						category: "backlog",
+						id: 1,
+						title: "Implement user authentication",
+						summary:
+							"Add functionality to allow users to sign in and manage their accounts",
+						description:
+							"Implement user authentication using JSON Web Tokens (JWT) and bcrypt for password hashing.",
+						tags: "JavaScript, Authentication, Security",
+					},
+					{
+						category: "backlog",
+						id: 2,
+						title: "Integrate payment gateway",
+						summary:
+							"Allow users to make payments through a secure payment gateway",
+						description:
+							"Integrate a popular payment gateway like Stripe or PayPal to enable users to make purchases within the application.",
+						tags: "E-commerce, Payments",
+					},
+
+					// Development (4 items)
+					{
+						category: "development",
+						id: 5,
+						title: "Refactor user dashboard",
+						summary:
+							"Improve the user dashboard for better usability and performance",
+						description:
+							"Refactor the user dashboard component to improve performance, enhance responsiveness, and provide a more intuitive user experience.",
+						tags: "React, Performance, UX",
+					},
+					{
+						category: "development",
+						id: 6,
+						title: "Implement search functionality",
+						summary:
+							"Allow users to search for specific content within the application",
+						description:
+							"Implement a search feature that enables users to search for content based on keywords, categories, or other relevant criteria.",
+						tags: "Search, Indexing, Elasticsearch",
+					},
+
+					// Progress (5 items)
+					{
+						category: "progress",
+						id: 9,
+						title: "Implement file upload",
+						summary: "Allow users to upload files to the application",
+						description:
+							"Implement a secure and reliable file upload feature that supports various file types and sizes.",
+						tags: "File Upload, Security",
+						priority: "High",
+					},
+					{
+						category: "progress",
+						id: 10,
+						title: "Optimize database queries",
+						summary:
+							"Improve application performance by optimizing database queries",
+						description:
+							"Analyze and optimize database queries to reduce unnecessary data fetching and improve overall application performance.",
+						tags: "Database, Performance, Optimization",
+						priority: "Medium",
+					},
+					{
+						category: "progress",
+						id: 11,
+						title: "Enhance error handling",
+						summary: "Improve error handling and logging mechanisms",
+						description:
+							"Implement better error handling strategies, including proper logging and user-friendly error messages, to improve application stability and debugging.",
+						tags: "Error Handling, Logging, Debugging",
+						priority: "Low",
+					},
+
+					// Done (5 items)
+					{
+						category: "done",
+						id: 14,
+						title: "Implement responsive design",
+						summary:
+							"Ensure the application is responsive across different devices",
+						description:
+							"Implement responsive design principles to ensure the application adapts and provides an optimal user experience across various devices and screen sizes.",
+						tags: "Responsive Design, Mobile, Desktop",
+					},
+					{
+						category: "done",
+						id: 15,
+						title: "Improve load times",
+						summary:
+							"Optimize application load times for better user experience",
+						description:
+							"Implement various performance optimization techniques, such as code splitting, lazy loading, and caching, to improve application load times.",
+						tags: "Performance, Load Times, Optimization",
+					},
+				];
+				// Add each dummy task individually to IndexedDB
+				dummyData.forEach((task) => {
+					let addRequest = store.add(task);
+
+					addRequest.onsuccess = () => {
+						console.log("Dummy task added:", task);
+					};
+
+					addRequest.onerror = (error) => {
+						console.error("Error adding dummy task:", error);
+					};
+				});
+
+				// Set flag in localStorage indicating dummy data has been added
+				localStorage.setItem("dummyDataAdded", "true");
+
+				// Render tasks
+				renderTasks(dummyData);
+			}
 		} else {
 			renderTasks(tasks);
 		}
@@ -443,7 +554,7 @@ function moveToTheBottom() {
 // TASK DETAILS VIEW
 function openTaskDetail(task) {
 	moveToTheBottom();
-
+	document.getElementById("footer").style.display = "block";
 	// THIS WILL ADD THE VALUES INSIDE THE INPUT FIELD OF AN CURRENT SELECTED DATA TO BE EDITED AND VIEWED
 	document.querySelector(".modal-overlay").style.display = "none";
 	document.querySelector(".box").style.display = "none";
@@ -548,6 +659,7 @@ if (document.querySelector(".detailContainer .submit-btn")) {
 				updateTask(task);
 				window.scrollTo({ top: 0, behavior: "smooth" });
 				document.getElementById("detailTaskSection").style.display = "none";
+				document.getElementById("footer").style.display = "none";
 			}
 		});
 }
@@ -593,6 +705,7 @@ if (document.querySelector(".detailContainer #delete")) {
 			// THIS IS THE CODE WHERE WE MOVE AT THE TOP AFTER WE PERFORM OUR DELETE OPERATIONS.
 			window.scrollTo({ top: 0, behavior: "smooth" });
 			document.getElementById("detailTaskSection").style.display = "none";
+			document.getElementById("footer").style.display = "none";
 		});
 }
 
@@ -798,4 +911,36 @@ if (document.getElementById("imageURLInput")) {
 	document
 		.getElementById("imageURLInput")
 		.addEventListener("change", handleImageUpload);
+}
+
+// Get the modal element
+const modal = document.getElementById("modal");
+
+// Get the close button element
+const closeBtn = document.getElementsByClassName("close")[0];
+
+// Check if the modal has been shown before
+const modalShown = sessionStorage.getItem("modalShown");
+
+// If the modal hasn't been shown before, show it
+if (!modalShown) {
+	modal.style.display = "block";
+
+	// When the user clicks the close button, hide the modal and set sessionStorage
+	closeBtn.onclick = function () {
+		modal.style.display = "none";
+		sessionStorage.setItem("modalShown", true);
+	};
+
+	// When the user clicks anywhere outside the modal, hide the modal and set sessionStorage
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+			sessionStorage.setItem("modalShown", true);
+		}
+	};
+}
+
+function openGuidePage() {
+	window.open("/group%20project/src/Guide.html", "_blank");
 }

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Software Management Board Guide</title>
+		<style>
+			body {
+				font-family: "Arial", sans-serif;
+				line-height: 1.6;
+				background-color: black;
+				color: #333;
+				display: flex;
+			}
+			h1 {
+				color: white;
+				text-align: center;
+				text-decoration: underline;
+			}
+			h2 {
+				color: black;
+				border-bottom: 2px solid black;
+				padding-bottom: 5px;
+			}
+			p,
+			li {
+				margin: 10px 0;
+			}
+			.container {
+				display: flex;
+				width: 100%;
+			}
+			.sidebar {
+				width: 20%;
+				background-color: black;
+				padding: 20px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				position: fixed;
+				height: 100%;
+			}
+			.sidebar.show {
+				transform: translateX(0);
+			}
+			.content {
+				width: 70%;
+				margin-left: 25%;
+				padding: 20px;
+			}
+			.section {
+				margin-bottom: 30px;
+				padding: 20px;
+				background: white;
+				border-radius: 10px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+			.summary-box {
+				background-color: #e7f9f0;
+				padding: 15px;
+				margin: 10px 0;
+				border-left: 5px solid black;
+				border-radius: 5px;
+			}
+			.example-box {
+				background-color: #f0f4f8;
+				padding: 15px;
+				margin: 10px 0;
+				border-left: 5px solid #2196f3;
+				border-radius: 5px;
+			}
+			ul {
+				list-style-type: none;
+				padding: 0;
+			}
+			ul li {
+				padding: 8px 0;
+			}
+			.sidebar ul {
+				list-style-type: none;
+				padding: 0;
+			}
+			.sidebar ul li {
+				padding: 8px 0;
+			}
+			.sidebar ul li a {
+				text-decoration: none;
+				color: rgb(255, 255, 255);
+			}
+			.sidebar ul li a:hover {
+				text-decoration: underline;
+			}
+			.closebtn {
+				display: none;
+			}
+
+			@media screen and (max-width: 800px) {
+				.sidebar {
+					transform: translateX(-100%);
+					width: 25%;
+					position: fixed;
+					left: 0;
+					top: 0;
+				}
+				h2 {
+					display: none;
+				}
+				.hamburger {
+					color: white;
+					position: absolute;
+					top: 3%;
+					left: 4%;
+					font-size: 30px;
+				}
+
+				h1 {
+					font-size: 25px;
+				}
+
+				.content {
+					width: 85%;
+					margin-left: 5%;
+					padding: 20px;
+				}
+
+				.closebtn {
+					display: block;
+					font-size: 40px;
+				}
+			}
+
+			@media screen and (max-width: 450px) {
+				.sidebar {
+					width: 45%;
+				}
+				h1 {
+					font-size: 20px;
+					margin-top: 20px;
+				}
+
+				.content {
+					font-size: 14px;
+					/* width: 100%; */
+					margin: 0 auto;
+				}
+				.hamburger {
+					font-size: 23px;
+				}
+
+				.section {
+					padding: 10px;
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+		<div class="sidebar" id="sidebar">
+			<a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()"
+				>&times;</a
+			>
+			<h2>Guide Topics</h2>
+			<ul>
+				<li onclick="toggleSidebar()">
+					<a href="#introduction">Introduction</a>
+				</li>
+				<li onclick="toggleSidebar()">
+					<a href="#task-interaction">Task Interaction</a>
+				</li>
+				<li onclick="toggleSidebar()">
+					<a href="#search-functionality">Search Functionality</a>
+				</li>
+				<li onclick="toggleSidebar()"><a href="#features">Features</a></li>
+				<li onclick="toggleSidebar()">
+					<a href="#slider-menu">Slider Menu</a>
+				</li>
+				<li onclick="toggleSidebar()">
+					<a href="#profile-section">Profile Section</a>
+				</li>
+				<li onclick="toggleSidebar()"><a href="#conclusion">Conclusion</a></li>
+			</ul>
+		</div>
+
+		<div class="content">
+			<h1>Software Management Board Guide</h1>
+
+			<div id="introduction" class="section">
+				<h2>Introduction</h2>
+
+				<div
+					style="
+						display: flex;
+						flex-direction: column;
+						gap: 10px;
+						padding: 10px;
+					"
+				>
+					<h3>
+						Welcome to the Software Management Board. This guide will help you
+						quickly understand and navigate the board.
+					</h3>
+					<ul
+						style="
+							display: flex;
+							flex-direction: column;
+							gap: 10px;
+							padding: 10px;
+						"
+					>
+						<li><b>Search Issues</b>: Prioritizes "Progress" tasks.</li>
+						<li><b>Create Task</b>: Adds a new task and removes dummy data.</li>
+						<li><b>Profile</b>: View and edit your profile.</li>
+						<li><b>Logout</b>: Log out of the board.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="task-interaction" class="section">
+				<h2>Task Interaction</h2>
+				<p>
+					Click any task box to scroll down to its detailed info and editing
+					tools.
+				</p>
+				<div class="summary-box">
+					<strong>Summary:</strong> Click a task box to view and edit details.
+				</div>
+			</div>
+
+			<div id="search-functionality" class="section">
+				<h2>Search Functionality</h2>
+				<p>
+					Use the search input to filter tasks from all categories. The "Search
+					Issues" function prioritizes tasks in the "Progress" category.
+				</p>
+				<div class="summary-box">
+					<strong>Summary:</strong> Search tasks across categories; prioritize
+					"Progress" tasks with "Search Issues".
+				</div>
+			</div>
+
+			<div id="features" class="section">
+				<h2>Features</h2>
+				<ul>
+					<li><strong>Only My Issues:</strong> Coming soon.</li>
+					<li><strong>Recently Updated:</strong> Coming soon.</li>
+				</ul>
+				<div class="summary-box">
+					<strong>Summary:</strong> Some features are in progress and will be
+					available soon.
+				</div>
+			</div>
+
+			<div id="slider-menu" class="section">
+				<h2>Slider Menu</h2>
+				<p>The slider menu on the left includes:</p>
+				<ul>
+					<li><strong>Search Issues:</strong> Prioritizes "Progress" tasks.</li>
+					<li>
+						<strong>Create Task:</strong> Adds a new task and removes dummy
+						data.
+					</li>
+					<li><strong>Profile:</strong> View and edit your profile.</li>
+					<li><strong>Logout:</strong> Log out of the board.</li>
+				</ul>
+				<div class="summary-box">
+					<strong>Summary:</strong> Use the slider menu for key functionalities:
+					search, create tasks, profile, and logout.
+				</div>
+			</div>
+
+			<div id="profile-section" class="section">
+				<h2>Profile Section</h2>
+				<p>
+					Add your profile to view credentials. Use "Forgot Password" to reset
+					your password with the correct email.
+				</p>
+				<div class="example-box">
+					<strong>Example:</strong> Click "Forgot Password", enter your email,
+					and reset your password.
+				</div>
+				<div class="summary-box">
+					<strong>Summary:</strong> Manage your profile and reset passwords as
+					needed.
+				</div>
+			</div>
+
+			<div id="conclusion" class="section">
+				<h2>Conclusion</h2>
+				<p>
+					This guide provides a quick overview to help you navigate and utilize
+					the Software Management Board effectively. For further assistance,
+					refer to our help section or contact support.
+				</p>
+				<div class="summary-box">
+					<strong>Summary:</strong> Use this guide to get started quickly.
+					Contact support for additional help.
+
+					<div>
+						<ul>
+							<li><span>Email : </span>faizanshaikh2002320@gmail.com</li>
+						</ul>
+
+						<a
+							href="https://github.com/SimplifiedWeb/Software-Management-Board"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Github -
+						</a>
+
+						<a
+							href="https://www.linkedin.com/in/faizan-shaikh-510146260/"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Linkedin</a
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function toggleSidebar() {
+				var sidebar = document.getElementById("sidebar");
+				if (sidebar.classList.contains("show")) {
+					sidebar.classList.remove("show");
+				} else {
+					sidebar.classList.add("show");
+				}
+			}
+		</script>
+	</body>
+</html>
