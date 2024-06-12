@@ -145,7 +145,7 @@ function fetchTask() {
 		if (tasks.length === 0) {
 			const dummyData = [
 				{
-					category: "backlog",
+					category: "done",
 					id: 1,
 					title: "Dummy Task 1",
 					summary: "Dummy summary 1",
@@ -497,9 +497,11 @@ if (document.querySelector(".submit-btn")) {
 			tags: document.getElementById("tags").value,
 			priority: document.getElementById("priority").value,
 		};
-
-		addTask(task);
-
+		if (task.category !== "" && task.title !== "") {
+			addTask(task);
+		} else {
+			alert("Please Fill The Form ");
+		}
 		// ONCE WE ADD THE DATA HIDE THE CREATE TASK MODAL.
 		document.querySelector(".box").style.display = "none";
 		document.querySelector(".modal-overlay").style.display = "none";
@@ -533,6 +535,9 @@ if (document.querySelector(".detailContainer .submit-btn")) {
 				summary: document.querySelector(".form-group #edit-summary").value,
 				description: document.querySelector(".form-group #edit-description")
 					.value,
+				description: document.querySelector(".form-group #edit-description")
+					.value,
+
 				tags: document.querySelector(".form-group #tag").value,
 				priority: document.getElementById("edit-priority").value,
 				id: parseInt(document.querySelector("#taskId").value),
@@ -644,6 +649,9 @@ if (document.getElementById("create_task_icon")) {
 			let data = document.querySelector(".box");
 
 			let currentScrolled = window.scrollY;
+			if (currentScrolled <= 50) {
+				currentScrolled = 100;
+			}
 
 			calculateMovingForm(data, currentScrolled);
 		});
@@ -660,7 +668,6 @@ function showProfile() {
 	document.getElementById("detailTaskSection").style.display = "none";
 
 	let img = document.getElementById("slider-logo");
-	console.log(img);
 	img.style.marginLeft = "26px";
 
 	// WE ADD A CHECK TO ENSURE WE RUN OUR PROFILE FUNCTIONALITY MULTIPLE TIMES.
