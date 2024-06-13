@@ -29,7 +29,7 @@ To use the Software Management Board, simply open the `index.html` file in your 
 
 ## Installation
 To install the Software Management Board locally, simply clone this repository to your local machine:
-```bash
+
 git clone https://github.com/SimplifiedWeb/Software-Management-Board.git
 
 Then, open the index.html file in your web browser to start using the application.
