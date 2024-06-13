@@ -14,6 +14,8 @@ Welcome to the Software Management Board project! This project provides a web-ba
 ## Introduction
 The Software Management Board is a web application built with HTML, CSS, and JavaScript. It offers a user-friendly interface for managing software development tasks efficiently. Whether you're a developer, project manager, or team lead, this tool can help streamline your workflow and enhance collaboration within your team.
 
+## Live : https://6669f04ed8098719e8328d47--fancy-lily-172690.netlify.app/sign
+
 ## Features
 - **Issue Tracking:** Easily track the progress of various tasks and issues across different categories such as backlog, development, progress, and done.
 - **Task Creation:** Create new tasks with details such as title, summary, description, priority, and tags.
