@@ -10,8 +10,42 @@
 		/>
 		<link rel="stylesheet" href="../assests/css/index.css" />
 	</head>
+	<!-- background: rgba(254, 253, 253, 0.838); -->
+	<!-- background-color: #ddeeffae; -->
+
 	<body>
-		<div id="root">
+		<div id="root" style="margin-bottom: 30px">
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<div
+						style="
+							display: flex;
+							flex-direction: column;
+							gap: 20px;
+							padding: 10px;
+						"
+					>
+						<h3>Welcome, TO OUR SOFTWARE MANAGEMENT BOARD</h3>
+						<ul
+							style="
+								display: flex;
+								flex-direction: column;
+								gap: 20px;
+								padding: 10px;
+							"
+						>
+							<li><b>Search Issues</b>: Prioritizes "Progress" tasks.</li>
+							<li>
+								<b>Create Task</b>: Adds a new task and removes dummy data.
+							</li>
+							<li><b>Profile</b>: View and edit your profile.</li>
+							<li><b>Logout</b>: Log out of the board.</li>
+						</ul>
+						<h4><b>Check out the Guide Section!</b></h4>
+					</div>
+				</div>
+			</div>
 			<!-- Sidebar -->
 			<div class="sidebar expanded">
 				<div class="sidebar-icons">
@@ -93,6 +127,17 @@
 								height="24px"
 							/>
 							<span class="icon-name">Profile</span>
+						</div>
+					</div>
+					<div class="icon" onclick="openGuidePage()">
+						<div class="icon-container">
+							<img
+								src="../assests/svg/guide.svg"
+								alt="guide"
+								width="24px"
+								height="24px"
+							/>
+							<span class="icon-name">Guide</span>
 						</div>
 					</div>
 					<div class="icon" onclick="logout();">
@@ -399,9 +444,11 @@
 							</svg>
 						</button>
 						<div class="creating-user-inputs">
-							<form >
+							<form>
 								<div class="groups-of-inputs">
-									<label class="category-label" for="category" required>Category</label>
+									<label class="category-label" for="category" required
+										>Category</label
+									>
 									<select
 										class="category-top"
 										id="toggle-category"
@@ -418,8 +465,8 @@
 								</div>
 
 								<div class="groups-of-inputs">
-									<label for="title" >Title</label>
-									<input  type="text" id="title" name="title" required />
+									<label for="title">Title</label>
+									<input required="" type="text" id="title" name="title" />
 									<p>Give The Title To Your Task.</p>
 								</div>
 								<div
@@ -429,7 +476,6 @@
 								>
 									<label for="priority">Priority</label>
 									<select id="priority" name="priority">
-										<option value="" selected></option>
 										<option value="High">High</option>
 										<option value="Medium">Medium</option>
 										<option value="Low">Low</option>
@@ -439,17 +485,17 @@
 
 								<div class="groups-of-inputs">
 									<label for="summary">Short Summary</label>
-									<input  type="text" id="summary" name="summary" required/>
+									<input required="" type="text" id="summary" name="summary" />
 									<p>Write the Short Summary To Remember.</p>
 								</div>
 								<div class="groups-of-inputs">
 									<label for="description">Description</label>
-									<textarea id="description" name="description" required></textarea>
+									<textarea id="description" name="description"></textarea>
 									<p>Detailed The Issue.</p>
 								</div>
 								<div class="groups-of-inputs">
 									<label for="tags">Tags</label>
-									<input required type="text" id="tags" name="tags" />
+									<input required="" type="text" id="tags" name="tags" />
 									<p>Which Language.</p>
 								</div>
 								<button class="submit-btn" type="submit">Add</button>
@@ -716,6 +762,18 @@
 							<button class="submit-btn" type="button">Update</button>
 						</div>
 					</form>
+				</div>
+			</div>
+			<div class="footer" id="footer">
+				<div class="names">
+					<!-- <p>Developed with dedication and expertise by Ajit and Faizan</p> -->
+					<p class="credit">Crafted with ❤️ by Faizan and Ajit</p>
+					<a
+						href="https://github.com/SimplifiedWeb/Software-Management-Board"
+						class="github-link"
+						target="_blank"
+						><b>( GitHub )</b></a
+					>
 				</div>
 			</div>
 			<!-- End Detail Container -->
